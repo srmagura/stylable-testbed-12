@@ -1,0 +1,28 @@
+@st-import [primary500] from "../styles/project.st.css";
+
+.root {
+  -st-states: active,
+    variant(enum(primary, secondary));
+
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border: none;
+  color: white;
+}
+
+:vars {
+  color: black;
+  /* WHY DOES THIS HAVE TO BE DEFINED? */
+}
+
+.buttonMixin {
+  background-color: value(color);
+}
+
+.root:variant(primary) {
+  -st-mixin: buttonMixin(color value(primary500));
+}
+
+.root:variant(secondary) {
+  -st-mixin: buttonMixin(color #666);
+}

@@ -1,5 +1,10 @@
 @st-import [pageContainer] from '../project.st.css';
 
 .root {
-  -st-extends: pageContainer; 
+  -st-extends: pageContainer;
+}
+
+.row {
+  display: flex;
+  column-gap: 1rem;
 }

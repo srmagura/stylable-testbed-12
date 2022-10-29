@@ -1,8 +1,9 @@
-import type { NextPage } from "next";
-import Head from "next/head";
+import type { NextPage } from 'next';
+import Head from 'next/head';
 
-import { Navbar } from "../components/Navbar";
-import { classes } from "../styles/pages/index.st.css";
+import { Button } from '../components/Button';
+import { Navbar } from '../components/Navbar';
+import { classes } from '../styles/pages/index.st.css';
 
 const Home: NextPage = () => {
   return (
@@ -18,7 +19,10 @@ const Home: NextPage = () => {
         <h1>Buttons</h1>
 
         <h2>Normal</h2>
-        <button>Primary</button>
+        <div className={classes.row}>
+          <Button variant="primary">Primary</Button>
+          <Button variant="secondary">Secondary</Button>
+        </div>
 
         <h2>Active</h2>
       </div>

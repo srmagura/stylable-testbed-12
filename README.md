@@ -20,6 +20,25 @@
    Code: -32603
    ```
 
+3. Another VS Code extension error:
+
+   ```text
+   Message: Request textDocument/signatureHelp failed with message: Cannot read properties of undefined (reading 'type')
+   Code: -32603
+   ```
+
+   For the code
+
+   ```css
+   .root {
+     -st-states: active,
+                 variant()
+
+     border-radius: 0.25rem;
+     padding: 0.25rem 0.5rem;
+   }
+   ```
+
 ## Problems I hit that probably weren't bugs
 
 1. My `.st.css` files generate namespaces with lots of numbers at the end, like `Home3386628209`. Is this expected? I thought one of the benefits of Stylable was that I was supposed to get easily-readable BEM-style class names by default.
@@ -38,8 +57,11 @@
 
 1. Would like `//` comments in `.st.css`. Sass allows this.
 2. It would feel a bit more natural me to read variables using `$` like other languages. E.g. if the variable is `foobar`, I could do `color: $foobar;` instead of `color: value(foobar);`.
-3. Something that Sass has that is pretty useful is [color functions](https://sass-lang.com/documentation/modules/color) like `lighten` and `darken`. It seems that Stylable does not have this feature.
+3. Something that Sass has that is pretty useful is [color functions](https://sass-lang.com/documentation/modules/color) like `lighten` and `darken`. It seems that Stylable does not have this feature. Here's a use case I don't know how to implement without color functions: a button mixin which darkens the button slightly when the user hovers over it.
 
-## Misc Comments
+## DX Concerns
 
 1. I often like to define multiple small, related React components in the same file. But it seems like Stylable works best if you have exactly one React component per `.tsx` file. Is one component per file the recommended pattern? Or would you suggest importing multiple `.st.css` files into a single `.tsx` file?
+2. The approach described in the [Component Variants](https://stylable.io/docs/guides/component-variants) doc seems inconvenient to me. I think people will want to write `<Button variant="primary">...</Button>`, but the document seems to suggest that I need to import the `.buttonPrimary` class from `Button.st.css` and then use `-st-extends` to attach it to a local class name. That seems like a lot of ceremony for something like button variants, which will be used very frequently throughout an application.
+3. It was surprising to me that I had to use `value()` here to pass a color to a mixin: `-st-mixin: buttonMixin(color value(primary500));`
+4. Overall, I found the way mixins worked to be pretty confusing, especially how parameters need to be passed to mixins. The way mixins work in Sass makes a lot more sense to me.
