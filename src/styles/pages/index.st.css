@@ -1,5 +1,5 @@
-@st-import [container] from '../project.st.css';
+@st-import [pageContainer] from '../project.st.css';
 
 .root {
-  -st-extends: container; 
+  -st-extends: pageContainer; 
 }

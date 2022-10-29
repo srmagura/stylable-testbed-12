@@ -1,0 +1,18 @@
+@st-import [colorBody, primary300, primary400] from '../styles/project.st.css';
+
+.root {
+  -st-states: active;
+
+  display: block;
+  color: value(colorBody);
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+}
+
+.root:hover {
+  background-color: value(primary300);
+}
+
+.root:active {
+  background-color: value(primary400);
+}

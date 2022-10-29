@@ -7,7 +7,8 @@
 ## VS Code Integration
 
 1. `.st.css` files have the default icon in the explorer, which makes it look like an unrecognized file type.
-2. Need automatic formatting like Prettier 🤑.
+2. I renamed a class via the F2 shortcut and it did not update usages of that class in another file (which imported the class).
+3. Another time, I tried renaming a class via the F2 shortcut and it allowed me to type in the new name, but nothing changed when I pressed Enter.
 
 ## Bugs
 
@@ -37,3 +38,8 @@
 
 1. Would like `//` comments in `.st.css`. Sass allows this.
 2. It would feel a bit more natural me to read variables using `$` like other languages. E.g. if the variable is `foobar`, I could do `color: $foobar;` instead of `color: value(foobar);`.
+3. Something that Sass has that is pretty useful is [color functions](https://sass-lang.com/documentation/modules/color) like `lighten` and `darken`. It seems that Stylable does not have this feature.
+
+## Misc Comments
+
+1. I often like to define multiple small, related React components in the same file. But it seems like Stylable works best if you have exactly one React component per `.tsx` file. Is one component per file the recommended pattern? Or would you suggest importing multiple `.st.css` files into a single `.tsx` file?

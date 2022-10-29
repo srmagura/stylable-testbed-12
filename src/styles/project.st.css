@@ -1,10 +1,21 @@
 :vars {
   colorBody: #111;
 
+  primary50: #f3e6ff;
+  primary100: #e0c2fe;
+  primary200: #cc99ff;
+  primary300: #b571fa;
+  primary400: #a254f2;
+  primary500: #903be9;
+  primary600: #7e39e2;
+  primary700: #6435d9;
+  primary800: #4a32d0;
+  primary900: #002dc1;
+
   containerPaddingX: 2rem;
 }
 
-.container {
-  padding-left: value(containerPaddingX);
-  padding-right: value(containerPaddingX);
+.pageContainer {
+  padding: 2rem value(containerPaddingX);
 }
+
