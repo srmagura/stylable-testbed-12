@@ -1,28 +1,42 @@
-@st-import [primary500] from "../styles/project.st.css";
+@st-import [primary300, primary500, primary600] from "../styles/project.st.css";
 
 .root {
   -st-states: active,
     variant(enum(primary, secondary));
 
   border-radius: 0.25rem;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
   border: none;
   color: white;
 }
 
 :vars {
-  color: black;
   /* WHY DOES THIS HAVE TO BE DEFINED? */
+  bg: black;
+  bgHover: black;
+  border: black;
 }
 
 .buttonMixin {
-  background-color: value(color);
+  -st-states: active;
+
+  background-color: value(bg);
+}
+
+.buttonMixin:hover {
+  background-color: value(bgHover);
+}
+
+.buttonMixin:active {
+  background-color: value(bgHover);
+  border: 3px solid value(border);
 }
 
 .root:variant(primary) {
-  -st-mixin: buttonMixin(color value(primary500));
+  -st-mixin: buttonMixin(bg value(primary500), bgHover value(primary600), border value(primary300));
 }
 
 .root:variant(secondary) {
-  -st-mixin: buttonMixin(color #666);
+  -st-mixin: buttonMixin(bg #666, bgHover #444, border #bbb);
 }

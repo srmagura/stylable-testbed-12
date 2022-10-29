@@ -1,8 +1,6 @@
 import { PropsWithChildren, ReactElement } from 'react';
 
-import classNames from 'classnames';
-
-import { classes, cssStates } from './Button.st.css';
+import { classes, st } from './Button.st.css';
 
 type ButtonProps = PropsWithChildren<{
   active?: boolean;
@@ -15,9 +13,7 @@ export function Button({
   children,
 }: ButtonProps): ReactElement {
   return (
-    <button
-      className={classNames(classes.root, cssStates({ active, variant }))}
-    >
+    <button className={st(classes.root, { active, variant })}>
       {children}
     </button>
   );

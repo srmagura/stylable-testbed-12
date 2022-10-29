@@ -25,6 +25,14 @@ const Home: NextPage = () => {
         </div>
 
         <h2>Active</h2>
+        <div className={classes.row}>
+          <Button variant="primary" active>
+            Primary
+          </Button>
+          <Button variant="secondary" active>
+            Secondary
+          </Button>
+        </div>
       </div>
     </>
   );

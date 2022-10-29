@@ -1,3 +1,18 @@
+## MAIN FEEDBACK
+
+1. I think Stylable needs better feature parity with Sass.
+   - Something that Sass has that is pretty useful is [color functions](https://sass-lang.com/documentation/modules/color) like `lighten` and `darken`. It seems that Stylable does not have this feature. Here's a use case I don't know how to implement without color functions: a button mixin which darkens the button slightly when the user hovers over it.
+   - Maps/lists and the ability to loop over them. E.g. you have 7 theme colors and want to generate a button variant for each of them.
+2. Once feature parity with Sass is improved, I think Stylable will be a value-add over Sass Modules. But I think it is a small value add for most developers. I also expect Stylable to be more difficult to learn than Sass Modules.
+   - For Stylable to gain widespread adoption, the value add over Sass must be larger and more obvious.
+3. Using Stylable in the context of React, it seems like each component now has 2 API surfaces: the React API surface (props) and the Stylable API surface (you can import the component's stylesheet and customize the appearance that way). This seems confusing to me. Should something like the variant of a button be set through a React prop or through a `.st.css` file?
+
+## Things I liked
+
+1. More structured module system and better compile-time checks than Sass.
+2. Great VS Code integration.
+3. Generally well documented.
+
 ## Docs
 
 1. Docs seem a bit too focused on how to get started from a premade Stylable boilerplate. I felt like I had to jump around the docs too much to get everything set up with Next.js and TypeScript.
@@ -53,11 +68,12 @@
    }
    ```
 
+4. My button has a weird generated class name: `Button774907051---variant-9-secondary`. I'm not sure why there are three hyphens in a row or where the number 9 comes from.
+
 ## Feature Requests
 
 1. Would like `//` comments in `.st.css`. Sass allows this.
-2. It would feel a bit more natural me to read variables using `$` like other languages. E.g. if the variable is `foobar`, I could do `color: $foobar;` instead of `color: value(foobar);`.
-3. Something that Sass has that is pretty useful is [color functions](https://sass-lang.com/documentation/modules/color) like `lighten` and `darken`. It seems that Stylable does not have this feature. Here's a use case I don't know how to implement without color functions: a button mixin which darkens the button slightly when the user hovers over it.
+2. It would feel a bit more natural me to read variables using `$` like other languages. E.g. if the variable is `foobar`, I could do `color: $foobar;` instead of `color: value(foobar);`. On the other hand, the `value()` syntax is very similar to CSS variables.
 
 ## DX Concerns
 
