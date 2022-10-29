@@ -1,8 +1,8 @@
-import { PropsWithChildren, ReactElement } from 'react';
+import { PropsWithChildren, ReactElement } from "react";
 
-import Link from 'next/link';
+import Link from "next/link";
 
-import { classes } from './Navbar.st.css';
+import { classes } from "./Navbar.st.css";
 
 type NavLinkProps = PropsWithChildren<{
   href: string;
@@ -18,7 +18,7 @@ function NavLink({ href, children }: NavLinkProps): ReactElement {
 
 export function Navbar(): ReactElement {
   return (
-    <div className={classes.self}>
+    <div className={classes.root}>
       <div className={classes.brand}>Stylable Testbed</div>
       <NavLink href="/button">Buttons</NavLink>
       <NavLink href="/nesting">Nesting</NavLink>

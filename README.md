@@ -23,7 +23,17 @@
 
 1. My `.st.css` files generate namespaces with lots of numbers at the end, like `Home3386628209`. Is this expected? I thought one of the benefits of Stylable was that I was supposed to get easily-readable BEM-style class names by default.
 2. I added a new variable `containerPaddingX` to `project.st.css`, used it in `Navbar.st.css`, and then saved both files at once. The Webpack plugin printed the error `[error: 05015]: cannot resolve imported symbol "containerPaddingX" from stylesheet "../styles/project.st.css"`. When I restarted the Next dev server, there were no errors. It seems like this could be a problem where the file watcher didn't wait for both files to be saved before performing its compilation.
+3. I got the warning `[warning: 00002]: unscoped class "container" will affect all elements of the same type in the document` from the following code, and I do not understand why. If I change `.container` to `.container1`, the warning goes away.
+
+   ```css
+   @st-import [container] from '../project.st.css';
+
+   .container {
+     -st-extends: container;
+   }
+   ```
 
 ## Feature Requests
 
 1. Would like `//` comments in `.st.css`. Sass allows this.
+2. It would feel a bit more natural me to read variables using `$` like other languages. E.g. if the variable is `foobar`, I could do `color: $foobar;` instead of `color: value(foobar);`.

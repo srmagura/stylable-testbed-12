@@ -3,3 +3,8 @@
 
   containerPaddingX: 2rem;
 }
+
+.container {
+  padding-left: value(containerPaddingX);
+  padding-right: value(containerPaddingX);
+}
