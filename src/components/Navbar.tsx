@@ -9,12 +9,17 @@ type NavLinkProps = PropsWithChildren<{
 }>;
 
 function NavLink({ href, children }: NavLinkProps): ReactElement {
-  return <Link href={href}>{children}</Link>;
+  return (
+    <Link className={classes.navLink} href={href}>
+      {children}
+    </Link>
+  );
 }
 
 export function Navbar(): ReactElement {
   return (
     <div className={classes.self}>
+      <div className={classes.brand}>Stylable Testbed</div>
       <NavLink href="/button">Buttons</NavLink>
       <NavLink href="/nesting">Nesting</NavLink>
     </div>
